@@ -11,6 +11,20 @@
   </head>
 
   <body>
+    <header>
+      <li>
+        <%= link_to "about", about_path %>
+      </li>
+      <li>
+        <%= link_to "商品一覧", new_customers_registration_path %>
+      </li>
+      <li>
+        <%= link_to "新規登録", new_customers_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_customers_session_path %>
+      </li>
+  </header>
     <%= yield %>
   </body>
 </html>
