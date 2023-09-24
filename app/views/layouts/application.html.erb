@@ -6,24 +6,29 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-      <li>
-        <%= link_to "about", about_path %>
-      </li>
-      <li>
-        <%= link_to "商品一覧", new_customers_registration_path %>
-      </li>
-      <li>
-        <%= link_to "新規登録", new_customers_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_customers_session_path %>
-      </li>
+      <!--<li>-->
+      <!--  <#%= link_to "about", about_path %>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--  <#%= link_to "商品一覧", new_customers_registration_path %>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--  <#%= link_to "新規登録", new_customers_registration_path %>-->
+      <!--</li>-->
+      <!--<li>-->
+      <!--  <#%= link_to "ログイン", new_customers_session_path %>-->
+      <!--</li>-->
+      <% if admin_signed_in? %>
+        <li>
+         <%= link_to "ログアウト", destroy_admin_session_pathq, method: :delete %>
+        </li>
+      <% end %>
   </header>
     <%= yield %>
   </body>

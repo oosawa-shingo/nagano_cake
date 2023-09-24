@@ -7,4 +7,26 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
 
+
+resources :orders
+
+namespace :admin do
+  resources :orders
+end
+
+resources :items
+
+namespace :admin do
+  resources :items
+end
+
+resources :customers
+
+namespace :admin do
+  resources :customers
+end
+
+resources :cart_items
+
+
 end
