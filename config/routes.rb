@@ -7,26 +7,39 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
 
+  scope module: :public do
+    root to: 'homes#top'
+  end
+  namespace :admin do
+    root to: 'homes#top'
+  end
 
-resources :orders
+  get 'homes/about'
 
-namespace :admin do
   resources :orders
-end
+  get 'orders/confirm'
+  get 'orders/complete'
 
-resources :items
+  namespace :admin do
+    resources :orders
+  end
 
-namespace :admin do
-  resources :items
-end
+  scope module: :public do
+    resources :items
+  end
 
-resources :customers
+  namespace :admin do
+    resources :items
+  end
 
-namespace :admin do
   resources :customers
-end
+  get 'customers/confirm'
 
-resources :cart_items
+  namespace :admin do
+    resources :customers
+  end
+
+  resources :cart_items
 
 
 end
