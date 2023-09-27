@@ -1,2 +1,69 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<h2>会員情報編集</h2>
+  <%= form_with model: @customer, url: customers_my_page_edit_path, method: :patch do |f| %>
+    <div class="form_group">
+      <div>
+        <label for="inputName">氏名</label>
+      </div>
+      <div>
+        <%= f.text_field :first_name, autofocus: true, id:"inputName", placeholder:"姓"%>
+      </div>
+      <div>
+        <%= f.text_field :last_name, autofocus: true, id:"inputName", placeholder:"名"%>
+      </div>
+    </div>
+
+    <div class="form_group">
+      <div>
+        <label for="inputName">フリガナ</label>
+      </div>
+      <div>
+        <%= f.text_field :first_name_kana, autofocus: true, id:"inputName", placeholder:"セイ" %>
+      </div>
+      <div>
+        <%= f.text_field :last_name_kana, autofocus: true, id:"inputName", placeholder:"メイ" %>
+      </div>
+    </div>
+
+    <div class="form_group">
+      <div>
+        <label for="inputPostal_code">郵便番号</label>
+      </div>
+      <div>
+        <%= f.text_field :postal_code, autofocus: true, id:"inputPostal_code", placeholder:"郵便番号" %>
+      </div>
+    </div>
+
+    <div class="form_group">
+      <div>
+        <label for="inputAddress">住所</label>
+      </div>
+      <div>
+        <%= f.text_field :address, autofocus: true, id:"inputAddress", placeholder:"住所" %>
+      </div>
+    </div>
+
+    <div class="form_group">
+      <div>
+        <label for="inputTelephone_number">電話番号</label>
+      </div>
+      <div>
+        <%= f.text_field :telephone_number, autofocus: true, id:"inputTelephone_number", placeholder:"電話番号" %>
+      </div>
+    </div>
+
+    <div class="form_group">
+      <div>
+        <label for="inputEmail">メールアドレス</label>
+      </div>
+      <div>
+        <%= f.text_field :email, autofocus: true, id:"inputEmail", placeholder:"メールアドレス" %>
+      </div>
+    </div>
+
+    <div class="form_group">
+      <%= f.submit "編集内容を保存", class: "btn btn-secondary" %>
+    </div>
+    <div class="form_group">
+      <%= link_to "退会する", customers_confirm_path, class: "btn btn-danger" %>
+    </div>
+  <% end %>

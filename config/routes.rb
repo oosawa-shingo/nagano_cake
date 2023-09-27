@@ -9,9 +9,18 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
+    get '/customers/my_page' => 'customers#show'
+    get '/customers/my_page/edit' => 'customers#edit'
+    patch '/customers/my_page/edit' => 'customers#update'
+    get '/customers/confirm'
+    patch '/customers/withdrawn'
   end
+
   namespace :admin do
     root to: 'homes#top'
+    resources :orders
+    resources :items
+    resources :customers
   end
 
   get 'homes/about'
@@ -20,23 +29,8 @@ Rails.application.routes.draw do
   get 'orders/confirm'
   get 'orders/complete'
 
-  namespace :admin do
-    resources :orders
-  end
-
   scope module: :public do
     resources :items
-  end
-
-  namespace :admin do
-    resources :items
-  end
-
-  resources :customers
-  get 'customers/confirm'
-
-  namespace :admin do
-    resources :customers
   end
 
   resources :cart_items
