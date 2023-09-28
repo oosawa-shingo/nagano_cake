@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
+    get '/about' => 'homes#about'
     get '/customers/my_page' => 'customers#show'
     get '/customers/my_page/edit' => 'customers#edit'
     patch '/customers/my_page/edit' => 'customers#update'
@@ -22,8 +23,6 @@ Rails.application.routes.draw do
     resources :items
     resources :customers
   end
-
-  get 'homes/about'
 
   resources :orders
   get 'orders/confirm'
