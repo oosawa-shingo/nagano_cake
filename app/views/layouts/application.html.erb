@@ -13,12 +13,14 @@
   <body>
     <header>
       <% if customer_signed_in? %>
+
+      <p>ようこそ、<%=current_customer.first_name %>さん</p>
       <li>
         <%= link_to "マイページ", customers_my_page_path(current_customer.id) %>
       </li>
-      <!--<li>-->
-      <!--  <#%= link_to "商品一覧", customers_my_page_path(current_customer.id) %>-->
-      <!--</li>-->
+      <li>
+        <%= link_to "商品一覧", items_path %>
+      </li>
       <!--<li>-->
       <!--  <#%= link_to "カート", customers_my_page_path(current_customer.id) %>-->
       <!--</li>-->

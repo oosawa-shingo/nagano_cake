@@ -1,2 +1,7 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div>
+  <%= image_tag @item.get_image %>
+  <p><%= @item.name %></p>
+  <p><%= @item.introduction %></p>
+  <p>¥<%= @item.add_tax_price.to_s(:dalimited) %>(税込)</p>
+</div>
+<%= link_to "カートに入れる", edit_admin_item_path, :class => "btn btn-success" %>
