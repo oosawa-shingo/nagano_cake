@@ -10,7 +10,13 @@
       <% end %>
       </p>
     <p>メールアドレス：<%= customers.email %></p>
-    <P>ステータス</P>
+    <P>ステータス：
+      <% if customers.is_active %>
+       <p class="text-success"><strong>有効</strong></p>
+      <% elsif %>
+       <p class="text-muted"><strong>退会</strong></p>
+      <% end %>
+    </P>
   </div>
 <% end %>
 <%= paginate @customers %>
