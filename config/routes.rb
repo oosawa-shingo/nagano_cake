@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     patch '/customers/my_page/edit' => 'customers#update'
     get '/customers/confirm'
     patch '/customers/withdrawn'
+    resources :items
+    resources :cart_items
   end
 
   namespace :admin do
@@ -27,12 +29,5 @@ Rails.application.routes.draw do
   resources :orders
   get 'orders/confirm'
   get 'orders/complete'
-
-  scope module: :public do
-    resources :items
-  end
-
-  resources :cart_items
-
 
 end
