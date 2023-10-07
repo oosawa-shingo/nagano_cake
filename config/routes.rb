@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     patch '/customers/my_page/edit' => 'customers#update'
     get '/customers/confirm'
     patch '/customers/withdrawn'
+    delete '/cart_items/destroy_all'
     resources :items
     resources :cart_items
   end
