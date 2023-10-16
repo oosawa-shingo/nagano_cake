@@ -16,9 +16,12 @@ Rails.application.routes.draw do
     get '/customers/confirm'
     patch '/customers/withdrawn'
     delete '/cart_items/destroy_all'
+    post '/cart_items/:id' => 'cart_items#update'
+    post 'orders/confirm'
+    get 'orders/complete'
     resources :items
     resources :cart_items
-    post '/cart_items/:id' => 'cart_items#update'
+    resources :orders
   end
 
   namespace :admin do
@@ -27,9 +30,5 @@ Rails.application.routes.draw do
     resources :items
     resources :customers
   end
-
-  resources :orders
-  get 'orders/confirm'
-  get 'orders/complete'
 
 end
