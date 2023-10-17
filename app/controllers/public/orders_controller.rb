@@ -4,10 +4,17 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders.all
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_detail = @order.order_details
+    @total = 0
+    @order_detail.each do |order_detail|
+      subtotal = order_detail.item.with_tax_price * order_detail.amount
+      @total += subtotal
+    end
   end
 
   def create
