@@ -5,3 +5,11 @@
 </h1>
 
 <h3>新着商品</h3>
+<% @items.first(4). each do |item| %>
+  <div>
+    <P><%= image_tag item.image %></P>
+    <P><%= item.name %></P>
+    <P>¥<%= item.with_tax_price %></P>
+  </div>
+<% end %>
+<%= link_to "全ての商品を見る", items_path %>
