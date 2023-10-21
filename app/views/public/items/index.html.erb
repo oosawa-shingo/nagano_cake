@@ -1,10 +1,30 @@
-<h1>商品一覧</h1>
-
-<% @items.each do |items| %>
-  <div>
-    <%= image_tag items.get_image %>
-    <p>商品名：<%= link_to items.name, item_path(items.id) %></p>
-    <p>¥<%= items.price %></p>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-10">
+      <h2>商品一覧(全<%= @items_all.count %>件)</h2>
+    </div>
   </div>
-<% end %>
-<%= paginate @items %>
+
+  <div class="row">
+    <% @items.each do |items| %>
+      <div class="col-3">
+        <div class="card-deck my-3">
+        <div class="card" style="width: 10rem;">
+          <%= link_to item_path(items) do %>
+            <%= image_tag items.get_image, class:"card-img-top"; %>
+          <% end %>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <p class="card-text"><%= items.name %></p>
+              <p class="card-text">¥<%= items.price.to_s(:dalimited) %></p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    <% end %>
+  </div>
+  <%= paginate @items %>
+</div>

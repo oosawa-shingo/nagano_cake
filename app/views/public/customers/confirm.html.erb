@@ -1,11 +1,11 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-6 mx-auto">
+    <div class="col-6 text-center mx-auto">
       <h1>本当に退会しますか？</h1>
     </div>
 
-    <div class="col-7 mx-auto">
+    <div class="col-12 text-center mx-auto">
       <h5>
         退会すると、会員登録情報や<br>
         これまでの購入履歴が閲覧できなくなります。<br>
@@ -14,12 +14,12 @@
     </div>
   </div>
 
-  <div class="row mx-auto">
-    <div class="col-2 offset-3">
+  <div class="row justify-content-center">
+    <div class="col-2 text-center">
       <%= link_to "退会しない", customers_my_page_path, class: "btn btn-primary" %>
     </div>
 
-    <div class="col-2">
+    <div class="col-2 text-center">
       <%= link_to "退会する", customers_withdrawn_path, method: :patch, class: "btn btn-danger" %>
     </div>
   </div>

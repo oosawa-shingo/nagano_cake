@@ -1,11 +1,19 @@
-<div>
-  <%= image_tag @item.get_image %>
-  <p><%= @item.name %></p>
-  <p><%= @item.introduction %></p>
-  <p>¥<%= @item.with_tax_price.to_s(:dalimited) %>(税込)</p>
+<div class="container mt-3 mb-3">
+  <div class="row">
+    <div class="col-6 text-right mx-auto">
+      <%= image_tag @item.get_image, size: "250x250" %>
+    </div>
+
+    <div class="col-6 mx-auto">
+      <h3><strong><%= @item.name %></strong></h3>
+      <h4 class="mb-5"><%= @item.introduction %></h4>
+      <h3 class="mb-5">¥<%= @item.with_tax_price.to_s(:dalimited) %>(税込)</h3>
+
+      <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+        <%= f.hidden_field :item_id, value: @item.id %>
+        <%= f.select :amount, *[1..10] %>
+        <%= f.submit 'カートに入れる', :class => "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
 </div>
-<%= form_with model: @cart_item, url: cart_items_path do |f| %>
-  <%= f.hidden_field :item_id, value: @item.id %>
-  <%= f.select :amount, *[1..10] %>
-  <%= f.submit 'カートに入れる', :class => "btn btn-success" %>
-<% end %>
