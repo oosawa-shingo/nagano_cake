@@ -1,41 +1,62 @@
-<h1>マイページ</h1>
+<div class="container my-5">
+  <div class="row my-3">
+    <div class="col-8">
+      <h4>マイページ</h4>
+    </div>
+  </div>
 
-<div>
-  <h3>登録情報</h3>
-  <P><%= link_to "編集する", customers_my_page_edit_path %></P>
+<div class="row">
+  <div class="col-2 pr-0">
+    <h5><strong>登録情報</strong></h5>
+  </div>
+
+  <div class="col-2 pl-0">
+    <%= link_to "編集する", customers_my_page_edit_path, class: "btn btn-success" %>
+  </div>
 </div>
 
-<div class="name">
-  <h5>氏名</h5>
-  <P><%= @customer.first_name %><%= @customer.last_name %></P>
+<div class="row">
+  <div class="col-7 px-0 my-3">
+    <table class="table table-bordered">
+      <tr>
+        <td>氏名</td>
+        <th><%= @customer.first_name %><%= @customer.last_name %></th>
+      </tr>
+
+      <tr>
+        <td>カナ</td>
+        <th><%= @customer.first_name_kana %><%= @customer.last_name_kana %></th>
+      </tr>
+
+      <tr>
+        <td>郵便番号</td>
+        <th><%= @customer.postal_code %></th>
+      </tr>
+
+      <tr>
+        <td>住所</td>
+        <th><%= @customer.address %></th>
+      </tr>
+
+      <tr>
+        <td>電話番号</td>
+        <th><%= @customer.telephone_number %></th>
+      </tr>
+
+      <tr>
+        <td>メールアドレス</td>
+        <th><%= @customer.email %></th>
+      </tr>
+    </table>
+  </div>
 </div>
 
-<div class="kana">
-  <h5>カナ</h5>
-  <p><%= @customer.first_name_kana %><%= @customer.last_name_kana %></p>
-</div>
+<div class="row">
+  <div class="col-2 pr-0">
+    <h5><strong>注文履歴</strong></h5>
+  </div>
 
-<div class="postal_code">
-  <h5>郵便番号</h5>
-  <p><%= @customer.postal_code %></p>
-</div>
-
-<div class="address">
-  <h5>住所</h5>
-  <P><%= @customer.address %></P>
-</div>
-
-<div class="telephone_number">
-  <h5>電話番号</h5>
-  <p><%= @customer.telephone_number %></p>
-</div>
-
-<div class="email">
-  <h5>メールアドレス</h5>
-  <P><%= @customer.email %></P>
-</div>
-
-<div>
-  <h3>注文履歴</h3>
-  <P><%= link_to "一覧を見る", orders_path %></P>
+  <div class="col-2 pl-0">
+    <%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %>
+  </div>
 </div>
