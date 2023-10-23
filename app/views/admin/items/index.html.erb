@@ -1,11 +1,40 @@
-<h1>商品一覧</h1>
+<div class="container my-5">
+  <div class="row my-3 justify-content-between">
+    <div class="col-4">
+      <h4>商品一覧</h4>
+    </div>
 
-<h3><%= link_to "新規登録", new_admin_item_path %></h3>
-<% @items.each do |items| %>
-  <div>
-    <p>商品ID：<%= items.id %></p>
-    <p>商品名：<%= link_to items.name, admin_item_path(items.id) %></p>
-    <p>税抜価格：<%= items.price %></p>
+    <div class="col-2 text-center">
+      <%= link_to new_admin_item_path do %>
+        <i class="fa-solid fa-circle-plus fa-2xl" style="color: #dad8d8;"></i>
+      <% end %>
+    </div>
   </div>
-<% end %>
-<%= paginate @items %>
+
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @items.each do |items| %>
+          <td><%= items.id %></td>
+          <td><%= link_to items.name, admin_item_path(items.id) %></td>
+          <td><%= items.price %></td>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-1 mx-auto">
+      <%= paginate @items %>
+    </div>
+  </div>
+</div>
