@@ -13,7 +13,11 @@
     <div class="row">
       <% @items.first(4). each do |item| %>
         <div class="col">
-          <P><%= image_tag item.image %></P>
+          <p>
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.get_image %>
+            <% end %>
+          </p>
           <P><%= item.name %></P>
           <P>¥<%= item.with_tax_price %></P>
         </div>

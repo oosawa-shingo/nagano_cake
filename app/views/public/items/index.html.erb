@@ -6,7 +6,7 @@
   </div>
 
   <div class="row">
-    <% @items.each do |items| %>
+    <% @items.first(8). each do |items| %>
       <div class="col-3">
         <div class="card-deck my-3">
         <div class="card" style="width: 10rem;">
@@ -26,5 +26,9 @@
       </div>
     <% end %>
   </div>
-  <%= paginate @items %>
+  <div class="row">
+    <div class="col-1 mx-auto">
+      <%= paginate @items %>
+    </div>
+  </div>
 </div>
